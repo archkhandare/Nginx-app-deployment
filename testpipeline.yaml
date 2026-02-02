@@ -1,0 +1,9 @@
+# This is a basic YAML file (hello.yaml)
+message: "Hello, world!"
+details:
+  creator: User
+  purpose: Sample file
+list_of_greetings:
+  - Hello
+  - Hola
+  - Bonjour
