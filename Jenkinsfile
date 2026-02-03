@@ -2,8 +2,8 @@
     agent any
 
      environment {
-        IMAGE_NAME = 'my_nginx'
-        IMAGE_TAG  ='latest'
+        IMAGE_NAME = 'my_nginximage'
+        IMAGE_TAG  ='v1'
         DOCKER_USER = 'archanaadmin02'
       }
       
