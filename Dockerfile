@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 # Copy your custom index.html file into the default NGINX web root directory
-COPY website /usr/share/nginx/html/index.html
+COPY website/index.html /usr/share/nginx/html/index.html
 
 # Expose port 80 (optional, used for documentation)
 EXPOSE 80
