@@ -34,7 +34,7 @@
 
       stage('Docker Login & Push') {
         steps {
-          withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
             sh """
               echo "--- Logging into Docker Hub ---"
               echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
