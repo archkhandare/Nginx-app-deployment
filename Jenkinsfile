@@ -51,11 +51,10 @@ pipeline {
            }
          }
        }
-    }
-    
-    stage('Deploy to Kubernetes') {
-         steps {
-            sh """
+        
+       stage('Deploy to Kubernetes') {
+          steps {
+             sh """
                echo "---Deploying image using Helm ---"
                kubectl create ns ${NAMESPACE}
             helm --install ${RELEASE_NAME} ${CHART_PATH} -n ${NAMESPACE}
