@@ -5,7 +5,8 @@
         IMAGE_NAME = 'my_nginximage'
         IMAGE_TAG  ='v'
         DOCKER_USER = 'archanaadmin02'
-        CHART_NAME="my-app"
+        CHART_NAME="nginx-app"
+        CHART_PATH = 'nginx-app'
         RELEASE_NAME="production-app"
         NAMESPACE="nginx"
       }
