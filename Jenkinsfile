@@ -6,6 +6,7 @@ pipeline {
         IMAGE_TAG  ='v1'
         DOCKER_USER = 'archanaadmin02'
         CHART_NAME="nginx-app"
+        CHART_PATH="./nginx-app/"
         RELEASE_NAME="nginx"
         NAMESPACE="nginx"
       }
@@ -56,8 +57,10 @@ pipeline {
              sh """
                echo "---Deploying image using Helm ---"
                sudo kubectl create ns ${NAMESPACE}
-               export CHART_PATH="./nginx-app"
-               sudo helm --install ${RELEASE_NAME} ${CHART_NAME} -n ${NAMESPACE}
+               sudo export CHART_PATH="./nginx-app/"
+               sudo helm lint $CHART_PATH
+               sudo helm package $CHART_PATH
+               sudo helm install ${RELEASE_NAME} ${CHART_NAME} -n ${NAMESPACE}
         """
          }
       }   
