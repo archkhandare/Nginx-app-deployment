@@ -57,7 +57,7 @@ pipeline {
              sh """
                echo "---Deploying image using Helm ---"
                sudo kubectl create ns ${NAMESPACE}
-               sudo helm --install ${RELEASE_NAME} ${CHART_PATH} -n ${NAMESPACE}
+               sudo helm --install ${RELEASE_NAME} ${CHART_NAME} -n ${NAMESPACE}
         """
          }
       }   
