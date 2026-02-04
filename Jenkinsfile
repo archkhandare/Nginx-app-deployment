@@ -67,6 +67,7 @@ pipeline {
          echo "---Deploying image using Helm ---"
          kubectl create ns ${NAMESPACE}
          sudo helm upgrade --install ${RELEASE_NAME} ${CHART_PATH} -n ${NAMESPACE}
+   """
       }
    }   
       
@@ -80,7 +81,8 @@ pipeline {
                 curl http://192.168.49.2:30008
                 echo "---application access outside of cluster"
                 kubectl port-forward service/nginx-service -n ${NAMESPACE} 30008:80
-        """    
+                
+         """    
                    }   
                 }         
             }
