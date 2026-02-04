@@ -71,18 +71,7 @@ pipeline {
                 curl http://192.168.49.2:30008
                 echo "---application access outside of cluster"
                 kubectl port-forward service/nginx-service -n ${NAMESPACE} 30008:80
-            """             
-           }   
-        }  
-          post {
-             always {
-             echo "Deployment Pipeline Completed."
-               }
-             success {
-                echo "Nginx application deployed successfully!"
-               }
-            failure {
-                echo "Deployment failed. Please check the logs."
+            """            
              }
           }
       }
