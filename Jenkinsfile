@@ -60,15 +60,15 @@ pipeline {
          echo "Build or push failed. check logs above."
         }
       }
-   } 
-  stages } 
+    
     stage('Deploy to Kubernetes') {
       steps {
-                echo "---Deploying image using Helm ---"
-                sh 'kubectl create ns ${NAMESPACE}'
-                sh 'sudo helm upgrade --install ${RELEASE_NAME} ${CHART_PATH} -n ${NAMESPACE}'
-            }
-        }   
+         sh"""
+         echo "---Deploying image using Helm ---"
+         kubectl create ns ${NAMESPACE}
+         sudo helm upgrade --install ${RELEASE_NAME} ${CHART_PATH} -n ${NAMESPACE}
+      }
+   }   
       
       stage('Verify Deployment') {
           steps {
