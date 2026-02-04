@@ -60,7 +60,7 @@
          echo "Build or push failed. check logs above."
         }
       }
-   } 
+   
     stage('Deploy to Kubernetes') {
             steps {
               script {
