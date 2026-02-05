@@ -80,10 +80,9 @@ pipeline {
                 echo "---URL to access outside of cluster"
                 sudo minikube service nginx-service -n nginx --url
            """
-                    
-             }
-          }
-      }
+            }
+        }
+    }
     
   post {
      always {
