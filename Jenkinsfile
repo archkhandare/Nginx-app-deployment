@@ -55,7 +55,7 @@ pipeline {
 
         stage('Add Helm Repo') {   
             steps {
-             sh 'sudo helm repo add nginx-repo https://archanak0210.github.io/helm-nginx-chart/'  
+             sh 'helm repo add nginx-repo https://archanak0210.github.io/helm-nginx-chart/'  
              sh 'helm repo list'
             }
         }
