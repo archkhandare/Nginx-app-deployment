@@ -7,6 +7,7 @@ pipeline {
         DOCKER_USER = 'archanaadmin02'
         CHART_NAME="nginx-app"
         CHART_PATH="./nginx-app/"
+        CHART_DIR_NAME = 'nginx-app'
         RELEASE_NAME="nginx"
         NAMESPACE="nginx"
       }
@@ -51,8 +52,16 @@ pipeline {
            }
          }
        }
+
+        stage('Build & Package Helm Chart')
+          steps }
+             sh 'helm template ${CHART_PATH} --set image.tag=${IMAGE_TAG}'
+             sh 'helm package ${CHART_PATH} --version ${IMAGE_TAG}"'
+           
+      
         
-       stage('Deploy to Kubernetes') {
+        
+        stage('Deploy to Kubernetes') {
           steps {
              sh """
                echo "---Deploying image using Helm ---"
