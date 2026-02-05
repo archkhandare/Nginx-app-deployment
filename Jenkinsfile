@@ -74,7 +74,7 @@ pipeline {
           steps {
             sh """
                 echo "---Verifying deployment---"
-                sudokubectl rollout status deployment/${RELEASE_NAME} -n ${NAMESPACE}
+                sudo kubectl rollout status deployment/${RELEASE_NAME} -n ${NAMESPACE}
                 sudo kubectl get pods -n ${NAMESPACE}
                 sudo kubectl get svc -n ${NAMESPACE}
                 sudo curl http://192.168.49.2:30008
