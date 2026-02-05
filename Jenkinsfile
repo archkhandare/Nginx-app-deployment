@@ -77,8 +77,7 @@ pipeline {
                 sudo kubectl get deployment -n ${NAMESPACE}
                 sudo kubectl get pods -n ${NAMESPACE}
                 sudo kubectl get svc -n ${NAMESPACE}
-                echo "---URL to access outside of cluster"
-                sudo minikube service nginx-service -n nginx --url
+                sudo helm list -n nginx
            """
             }
         }
@@ -90,6 +89,9 @@ pipeline {
         }
      success {
         echo "Nginx application deployed successfully!"
+        echo "---http://192.168.49.2:30008---access URL within minikube cluster---"
+        echo "---access URL outside of minikube cluster run command with archanaadmin login---"
+        echo " ---minikube service nginx-service -n nginx --url---"
         }
       failure {
          echo "Deployment failed. Please check the logs."
